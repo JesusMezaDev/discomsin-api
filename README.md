@@ -1,5 +1,5 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+<p align="center" style="background-color: #FFF;">
+    <img src="https://discomsin.netlify.app/img/logo.png" alt="Logo" />
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -22,17 +22,19 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descripción
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+La API de Discomsin está hecha con [Nest](https://nestjs.com/) y [Typescript](https://www.typescriptlang.org/).
 
-## Installation
+## Instalación
 
 ```bash
-$ npm install
+$ npm i -E
 ```
 
-## Running the app
+## Para correr la aplicación
+
+Estos son los comandos para correr la API en sus diferentes modos:
 
 ```bash
 # development
@@ -41,11 +43,16 @@ $ npm run start
 # watch mode
 $ npm run start:dev
 
+# debug mode
+$ npm run start:debug
+
 # production mode
 $ npm run start:prod
 ```
 
 ## Test
+
+Estos son los comandos para correr las pruebas:
 
 ```bash
 # unit tests
@@ -57,17 +64,29 @@ $ npm run test:e2e
 # test coverage
 $ npm run test:cov
 ```
+## Explicación de variables de entorno
 
-## Support
+NOTA: todos los valores de las variables que a continuación se presentan son ejemplos utilizados meramente para explicación.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+# Api Key de Cloudinary
+API_KEY=123123
 
-## Stay in touch
+# Api Secret de Cloudinary
+API_SECRET=abcABC
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+# Cloud Name de Cloudinary
+CLOUD_NAME=apicloudname
 
-## License
+# URL de sitio web de Discomsin, solamente desde este sitio se podrá hacer llamados a la API, de lo contrario habrá error de CORS
+DISCOMSIN_URL=http://localhost:5173
 
-Nest is [MIT licensed](LICENSE).
+# Carpeta principal donde se alojarán las imágenes y los catálogos de las imágenes
+ROOT_PATH=pathfolder
+
+# Ruta donde se encontrarán todos los catálogos
+CATALOGS_PATH=pathfolder/catalogspathfolder/
+
+# Ruta donde se encontrarán las imágenes que se utilizan en el Slider o Carrusel en el sitio web de Discomsin
+PATH_SLIDER_IMAGES=pathfolder/sliderpathfolder/
+```

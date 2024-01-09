@@ -11,12 +11,12 @@ export class CatalogsService {
       api_secret: process.env.API_SECRET,
       cloud_name: process.env.CLOUD_NAME,
     });
-
+    
     try {
       const response: CloudinaryResponse = await cloudinary.api
       .resources({
         type: 'upload',
-        prefix: `muebleria/catalogos/${ catalogName }/`,
+        prefix: `${ process.env.CATALOGS_PATH }${ catalogName }/`,
       });
 
       const { resources } = response;

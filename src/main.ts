@@ -6,7 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     cors: {
-      origin: [process.env.DISCOMSIN_URL],
+      origin: ['https://discomsin.com', process.env.DISCOMSIN_URL],
       methods: ['GET'],
       preflightContinue: false,
     }

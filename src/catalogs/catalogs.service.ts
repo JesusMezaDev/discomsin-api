@@ -1,7 +1,8 @@
 import { Injectable, BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
 
-import { ImagesResponse, CloudinaryResponse } from '../interfaces/cloudinaryResponse';
+import { ImagesResponse, CloudinaryImagesResponse } from '../interfaces/cloudinaryImagesResponse';
+import { CloudinaryFoldersResponse } from 'src/interfaces/cloudinaryFoldersResponse';
 
 @Injectable()
 export class CatalogsService {
@@ -13,7 +14,7 @@ export class CatalogsService {
     });
     
     try {
-      const response: CloudinaryResponse = await cloudinary.api
+      const response: CloudinaryImagesResponse = await cloudinary.api
       .resources({
         type: 'upload',
         prefix: `${ process.env.CATALOGS_PATH }${ catalogName }/`,
@@ -42,6 +43,24 @@ export class CatalogsService {
       });
 
       return imgs;
+    } catch (error) {
+      this.handleError(error);
+    }
+  }
+
+  async getCatalogs() {
+    cloudinary.config({
+      api_key: process.env.API_KEY,
+      api_secret: process.env.API_SECRET,
+      cloud_name: process.env.CLOUD_NAME,
+    });
+    
+    try {
+      const response: CloudinaryFoldersResponse = await cloudinary.api.sub_folders(process.env.CATALOGS_PATH);
+
+      const { folders } = response;
+      
+      return folders;
     } catch (error) {
       this.handleError(error);
     }

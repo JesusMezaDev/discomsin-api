@@ -1,4 +1,4 @@
-export interface CloudinaryResponse {
+export interface CloudinaryImagesResponse {
     resources:            Resource[];
     rate_limit_allowed:   number;
     rate_limit_reset_at:  string;

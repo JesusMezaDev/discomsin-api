@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
 
-import { ImagesResponse, CloudinaryResponse } from '../interfaces/cloudinaryResponse';
+import { ImagesResponse, CloudinaryImagesResponse } from '../interfaces/cloudinaryImagesResponse';
 
 @Injectable()
 export class SliderService {
@@ -13,7 +13,7 @@ export class SliderService {
     });
 
     try {
-      const response: CloudinaryResponse = await cloudinary.api
+      const response: CloudinaryImagesResponse = await cloudinary.api
       .resources({
         type: 'upload',
         prefix: process.env.PATH_SLIDER_IMAGES,

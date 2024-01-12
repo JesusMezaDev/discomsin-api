@@ -6,7 +6,12 @@ export class CatalogsController {
   constructor(private readonly catalogsService: CatalogsService) {}
 
   @Get(':catalogName')
-  findAll(@Param('catalogName') catalogName: string) {
-    return this.catalogsService.findAll(catalogName);
+  async findAll(@Param('catalogName') catalogName: string) {
+    return await this.catalogsService.findAll(catalogName);
+  }
+  
+  @Get()
+  async findAllCatalogs() {
+    return await this.catalogsService.getCatalogs();
   }
 }

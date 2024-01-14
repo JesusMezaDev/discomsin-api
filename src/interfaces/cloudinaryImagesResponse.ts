@@ -20,6 +20,16 @@ export interface Resource {
     access_mode:   string;
     url:           string;
     secure_url:    string;
+    context?:      Custom;
+}
+
+export interface Context {
+    custom:        Custom;
+}
+
+export interface Custom {
+    alt:            string;
+    caption:        string;
 }
 
 export interface ImagesResponse {
@@ -28,4 +38,5 @@ export interface ImagesResponse {
     folder:        string;
     url:           string;
     secure_url:    string;
+    context?:      Custom;
 }

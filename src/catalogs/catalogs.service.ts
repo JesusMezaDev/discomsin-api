@@ -18,6 +18,7 @@ export class CatalogsService {
       .resources({
         type: 'upload',
         prefix: `${ process.env.CATALOGS_PATH }${ catalogName }/`,
+        context: true,
       });
 
       const { resources } = response;
@@ -26,19 +27,21 @@ export class CatalogsService {
 
       resources.forEach(resource => {
         const {
-          public_id,
-          format,
+          context,
           folder,
+          format,
+          public_id,
+          secure_url,
           url,
-          secure_url
         } = resource;
 
         imgs.push({
-          public_id,
-          format,
+          context,
           folder,
+          format,
+          public_id,
+          secure_url,
           url,
-          secure_url
         });
       });
 
@@ -68,6 +71,7 @@ export class CatalogsService {
 
   handleError = (error: any) => {
     if (error.code >= 400 && error.code < 500) throw new BadRequestException(error.message);
+    if (error.http_code>= 400 && error.http_code < 500) throw new BadRequestException(error.message);
 
     throw new InternalServerErrorException('Algo salió mal, inténtelo de nuevo más tarde.');
   }

@@ -1,7 +1,7 @@
 import { Injectable, BadRequestException, InternalServerErrorException } from '@nestjs/common';
 import { v2 as cloudinary } from 'cloudinary';
 
-import { ImagesResponse, CloudinaryImagesResponse } from '../interfaces/cloudinaryImagesResponse';
+import { ImagesResponse, CloudinaryImagesResponse, Info } from '../interfaces/cloudinaryImagesResponse';
 import { CloudinaryFoldersResponse } from 'src/interfaces/cloudinaryFoldersResponse';
 
 @Injectable()
@@ -35,10 +35,12 @@ export class CatalogsService {
           url,
         } = resource;
 
+        const info: { title: string, description: string } = { title: context?.custom.caption, description: context?.custom.alt }; 
+
         imgs.push({
-          context,
           folder,
           format,
+          info,
           public_id,
           secure_url,
           url,

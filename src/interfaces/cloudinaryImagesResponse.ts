@@ -20,7 +20,7 @@ export interface Resource {
     access_mode:   string;
     url:           string;
     secure_url:    string;
-    context?:      Custom;
+    context?:      Context;
 }
 
 export interface Context {
@@ -33,10 +33,15 @@ export interface Custom {
 }
 
 export interface ImagesResponse {
-    public_id:     string;
-    format:        string;
     folder:        string;
-    url:           string;
+    format:        string;
+    info?:         Info;
+    public_id:     string;
     secure_url:    string;
-    context?:      Custom;
+    url:           string;
+}
+
+export interface Info {
+    description:   string;
+    title:         string;
 }

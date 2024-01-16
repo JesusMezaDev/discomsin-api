@@ -35,4 +35,6 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 .env
+.env.*
+!.env.template
 package-lock.json

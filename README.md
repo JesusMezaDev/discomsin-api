@@ -22,7 +22,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Descripción
+## Descripción de la aplicación
 
 La API de Discomsin está hecha con [Nest](https://nestjs.com/) y [Typescript](https://www.typescriptlang.org/).
 
